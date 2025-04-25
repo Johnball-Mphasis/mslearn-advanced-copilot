@@ -4,7 +4,9 @@ from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
 
-
+@app.get('/countries/{country}')
+def cities(country: str):
+    return list(data[country].keys())
 current_dir = dirname(abspath(__file__))
 wellknown_path = join(current_dir, ".well-known")
 historical_data = join(current_dir, "weather.json")
